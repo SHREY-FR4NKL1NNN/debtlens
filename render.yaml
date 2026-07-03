@@ -1,5 +1,5 @@
 # Render blueprint for the DebtLens backend (FastAPI + SQLite).
-# Deploy: Render dashboard → New → Blueprint → point at this repo.
+# Deploy: Render dashboard -> New -> Blueprint -> point at this repo.
 services:
   - type: web
     name: debtlens-api
@@ -8,10 +8,19 @@ services:
     plan: free
     buildCommand: pip install -r requirements.txt
     startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
     envVars:
-      # URL of your LocalMind router (used for statement parsing). Set this in
-      # the dashboard to your ngrok LocalMind URL, e.g. https://xxxx.ngrok-free.app
+      # Pin Python so builds are reproducible (matches local dev).
+      - key: PYTHON_VERSION
+        value: "3.12.10"
+      # SQLite lives on the free plan's ephemeral disk, so it resets on
+      # redeploy/spin-down. That's OK: the frontend mirrors debts + progress to
+      # localStorage, so a user's data survives in their browser regardless.
+      # Attach a persistent disk (paid) if you want server-side durability.
+      - key: DEBTLENS_DB
+        value: "/tmp/debtlens.db"
+      # URL of your LocalMind router (used for PDF statement parsing). Set this
+      # in the dashboard to your ngrok LocalMind URL, e.g.
+      # https://xxxx.ngrok-free.app  (leave unset to disable AI parsing).
       - key: LOCALMIND_URL
         sync: false
-    # NOTE: the free plan's disk is ephemeral — the SQLite file resets on
-    # redeploy/restart. Fine for a demo; attach a persistent disk for real use.
