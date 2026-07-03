@@ -1,0 +1,130 @@
+.lifecost {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+/* Hero */
+.life-hero {
+  padding: var(--space-8);
+  position: relative;
+  overflow: hidden;
+}
+.life-hero-lead {
+  font-weight: 500;
+  margin-bottom: var(--space-2);
+}
+.life-hero-number {
+  font-size: var(--text-3xl);
+  line-height: 1.05;
+  margin-bottom: var(--space-3);
+}
+.life-hero-unit {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 500;
+  color: var(--dl-text-secondary);
+}
+.life-hero-sub {
+  max-width: 56ch;
+  color: var(--dl-text-secondary);
+}
+.life-edit-income {
+  margin-top: var(--space-4);
+}
+
+/* Income setup */
+.income-setup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.income-form {
+  display: flex;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+  flex-wrap: wrap;
+}
+.income-mode {
+  width: 120px;
+  flex-shrink: 0;
+}
+.income-form .input {
+  flex: 1;
+  min-width: 160px;
+}
+
+/* Lens toggle */
+.lens-toggle {
+  display: inline-flex;
+  gap: var(--space-1);
+  padding: var(--space-1);
+  border-radius: var(--radius-full);
+  background: var(--dl-bg-secondary);
+  align-self: flex-start;
+}
+.lens-btn {
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--dl-text-secondary);
+  transition: all var(--duration-fast) var(--ease-out);
+}
+.lens-btn.active {
+  background: var(--dl-surface-raised);
+  color: var(--dl-text-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Life card */
+.life-card {
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+.life-card-head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+.life-card-head .debt-type-pill {
+  margin-left: auto;
+}
+.life-card-interest {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.life-interest-value {
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  color: var(--dl-danger);
+}
+.life-equivs {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--dl-glass-border);
+}
+.life-equiv {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+.life-equiv-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}
+.life-equiv-value {
+  font-weight: 600;
+  font-size: var(--text-base);
+  min-width: 68px;
+}
+.life-equiv-label {
+  color: var(--dl-text-secondary);
+}

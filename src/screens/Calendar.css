@@ -1,0 +1,272 @@
+.calendar-screen {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+/* Milestones */
+.milestone-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+@media (max-width: 767px) {
+  .milestone-row {
+    grid-template-columns: 1fr;
+  }
+}
+.milestone-card {
+  padding: var(--space-4) var(--space-5);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+.milestone-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  flex-shrink: 0;
+  color: #fff;
+}
+.milestone-icon.first {
+  background: var(--dl-student);
+}
+.milestone-icon.half {
+  background: var(--dl-warning);
+}
+.milestone-icon.final {
+  background: var(--dl-accent);
+}
+.milestone-label {
+  font-weight: 600;
+  font-size: var(--text-sm);
+}
+.milestone-date {
+  font-size: var(--text-sm);
+  color: var(--dl-text-secondary);
+}
+
+/* Timeline
+   --label-w: width of the left debt-name column.
+   --gutter:  right space so the last bar + its end cap never touch the edge.
+   --band:    top strip reserved for the year labels.
+   Both the overlay grid and the bar tracks respect --label-w / --gutter, so the
+   gridlines stay aligned with the bars — and nothing needs an inner scrollbar. */
+.timeline-card {
+  padding: var(--space-6);
+}
+.timeline {
+  position: relative;
+  --label-w: 150px;
+  --gutter: 18px;
+  --band: 30px;
+}
+
+/* Full-height overlay: year labels/ticks, milestone lines, selection line.
+   Bounded top:0 -> bottom:0 so it can never overflow the card. */
+.timeline-grid {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--label-w);
+  right: var(--gutter);
+  z-index: 2;
+  cursor: crosshair;
+}
+/* Short tick under each year label (does not cross the bars). */
+.year-mark {
+  position: absolute;
+  top: 0;
+  height: var(--band);
+  border-left: 1px dashed var(--dl-glass-border);
+}
+.year-label {
+  position: absolute;
+  top: 0;
+  left: 4px;
+  font-size: var(--text-xs);
+  color: var(--dl-text-muted);
+  white-space: nowrap;
+}
+/* Milestone + selection lines run down through the bars only. */
+.milestone-line {
+  position: absolute;
+  top: var(--band);
+  bottom: 0;
+  width: 2px;
+  opacity: 0.55;
+  pointer-events: none;
+}
+.milestone-line.first {
+  background: var(--dl-student);
+}
+.milestone-line.half {
+  background: var(--dl-warning);
+}
+.milestone-line.final {
+  background: var(--dl-accent);
+}
+.select-line {
+  position: absolute;
+  top: var(--band);
+  bottom: 0;
+  width: 2px;
+  background: var(--dl-text-primary);
+  pointer-events: none;
+}
+
+.timeline-bars {
+  position: relative;
+  padding-top: calc(var(--band) + var(--space-2));
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.bar-row {
+  display: grid;
+  grid-template-columns: var(--label-w) 1fr;
+  align-items: center;
+}
+.bar-label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding-right: var(--space-3);
+  min-width: 0;
+}
+.bar-name {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.bar-track {
+  position: relative;
+  height: 30px;
+  margin-right: var(--gutter);
+  background: var(--dl-bg-secondary);
+  border-radius: var(--radius-full);
+}
+.bar-fill {
+  position: relative;
+  height: 100%;
+  border-radius: var(--radius-full);
+  min-width: 20px;
+  display: flex;
+  align-items: center;
+  box-shadow: var(--shadow-sm);
+}
+.bar-payoff {
+  position: absolute;
+  right: 14px;
+  font-size: var(--text-xs);
+  color: #fff;
+  opacity: 0.92;
+  white-space: nowrap;
+}
+/* End cap pinned to the exact payoff point on the track (not the animated fill
+   edge), centered, sitting in the gutter so it never clips. */
+.bar-cap {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--dl-bg);
+  box-shadow: var(--shadow-sm);
+}
+.timeline-hint {
+  margin-top: var(--space-5);
+  font-size: var(--text-xs);
+  text-align: center;
+}
+
+/* Mobile: stack the debt name above a full-width bar; the overlay spans the
+   full width so gridlines still line up. No horizontal scroll anywhere. */
+@media (max-width: 767px) {
+  .timeline {
+    --label-w: 0px;
+    --gutter: 14px;
+  }
+  .timeline-grid {
+    left: 0;
+  }
+  .year-label {
+    font-size: 10px;
+    left: 2px;
+  }
+  .timeline-bars {
+    gap: var(--space-5);
+    padding-top: calc(var(--band) + var(--space-3));
+  }
+  .bar-row {
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+  }
+  .bar-label {
+    padding-right: 0;
+  }
+  .bar-name {
+    white-space: normal;
+  }
+  /* In-bar payoff date gets crowded on short bars; the end cap + the milestone
+     cards above already convey the dates. */
+  .bar-payoff {
+    display: none;
+  }
+}
+
+/* Month detail */
+.month-detail {
+  padding: var(--space-6);
+}
+.month-detail-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-4);
+}
+.month-detail-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+@media (max-width: 767px) {
+  .month-detail-stats {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+}
+.month-active-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+.active-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  background: var(--dl-bg-secondary);
+}
+.month-freedom {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-base);
+  color: var(--dl-accent);
+  font-weight: 500;
+}

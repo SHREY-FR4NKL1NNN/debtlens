@@ -1,0 +1,114 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+/* -------------------------------------------------------------- Hero */
+.hero {
+  padding: var(--space-4) 0 var(--space-2);
+}
+.hero-eyebrow {
+  font-weight: 500;
+  color: var(--dl-text-secondary);
+  margin-bottom: var(--space-2);
+}
+.hero-number {
+  font-size: var(--text-3xl);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  margin-bottom: var(--space-6);
+}
+.hero-stats {
+  display: flex;
+  align-items: stretch;
+  gap: var(--space-6);
+  flex-wrap: wrap;
+}
+.hero-stat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+.hero-stat-value {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--dl-text-primary);
+}
+.hero-stat-sub {
+  font-size: var(--text-xs);
+}
+.hero-divider {
+  width: 1px;
+  background: var(--dl-glass-border);
+  align-self: stretch;
+}
+
+@media (max-width: 767px) {
+  .hero-number {
+    font-size: var(--text-2xl);
+  }
+  .hero-stats {
+    gap: var(--space-4);
+  }
+  .hero-divider {
+    display: none;
+  }
+  .hero-stat {
+    flex: 1 1 40%;
+  }
+}
+
+/* --------------------------------------------------------- Section head */
+.section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-4);
+}
+.section-head .section-label {
+  margin-bottom: 0;
+}
+
+/* --------------------------------------------------------------- CTAs */
+.cta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+@media (max-width: 767px) {
+  .cta-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.cta-card {
+  padding: var(--space-5);
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  cursor: pointer;
+}
+.cta-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: var(--radius-md);
+  color: #fff;
+  flex-shrink: 0;
+  box-shadow: var(--shadow-md);
+}
+.cta-text {
+  flex: 1;
+  min-width: 0;
+}
+.cta-title {
+  font-size: var(--text-base);
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.cta-arrow {
+  color: var(--dl-text-muted);
+  flex-shrink: 0;
+}

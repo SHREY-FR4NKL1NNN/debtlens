@@ -1,0 +1,113 @@
+.simulator {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.sim-controls {
+  padding: var(--space-6);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: var(--space-6);
+  align-items: stretch;
+}
+.sim-divider {
+  width: 1px;
+  background: var(--dl-glass-border);
+}
+.sim-control {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.sim-control-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+.sim-control-head label {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--dl-text-secondary);
+}
+.sim-control-value {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--dl-accent);
+}
+.slider-scale {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--text-xs);
+}
+.windfall-row {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: var(--space-3);
+}
+
+@media (max-width: 767px) {
+  .sim-controls {
+    grid-template-columns: 1fr;
+  }
+  .sim-divider {
+    width: 100%;
+    height: 1px;
+  }
+}
+
+/* Range slider — themed track + thumb with accent fill. */
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(
+    to right,
+    var(--dl-accent) 0%,
+    var(--dl-accent) var(--fill, 0%),
+    var(--dl-bg-secondary) var(--fill, 0%),
+    var(--dl-bg-secondary) 100%
+  );
+  outline: none;
+  cursor: pointer;
+}
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid var(--dl-accent);
+  box-shadow: var(--shadow-md);
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+.slider::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+.slider::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid var(--dl-accent);
+  box-shadow: var(--shadow-md);
+}
+
+/* Stat cards row */
+.sim-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+@media (max-width: 767px) {
+  .sim-stats {
+    grid-template-columns: 1fr;
+  }
+}
+.stat-value .stat-unit {
+  font-size: var(--text-base);
+  color: var(--dl-text-secondary);
+}

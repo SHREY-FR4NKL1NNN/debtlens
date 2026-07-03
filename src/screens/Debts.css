@@ -1,0 +1,63 @@
+.debt-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.debt-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-5);
+}
+.debt-row-main {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex: 1;
+  min-width: 0;
+}
+.debt-row-id {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.debt-row-figures {
+  display: flex;
+  gap: var(--space-8);
+}
+.debt-figure {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 72px;
+}
+.debt-figure .dl-mono {
+  font-size: var(--text-sm);
+  font-weight: 500;
+}
+.debt-row-actions {
+  display: flex;
+  gap: var(--space-1);
+}
+.icon-btn.danger:hover {
+  background: var(--dl-danger-light);
+  color: var(--dl-danger);
+}
+
+@media (max-width: 767px) {
+  .debt-row {
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+  .debt-row-figures {
+    order: 3;
+    width: 100%;
+    justify-content: space-between;
+    gap: var(--space-3);
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--dl-glass-border);
+  }
+  .debt-figure {
+    min-width: 0;
+  }
+}

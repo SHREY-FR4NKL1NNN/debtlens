@@ -1,0 +1,47 @@
+.app-shell {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.app-main {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.app-content {
+  width: 100%;
+}
+
+.route-wrap {
+  width: 100%;
+}
+
+/* Desktop: fixed sidebar (240px), centered 1200px content. */
+@media (min-width: 1025px) {
+  .app-main {
+    margin-left: 240px;
+  }
+  .app-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--space-10) var(--space-10) var(--space-12);
+  }
+}
+
+/* Tablet: narrow sidebar (84px). */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .app-main {
+    margin-left: 84px;
+  }
+  .app-content {
+    padding: var(--space-8) var(--space-6) var(--space-10);
+  }
+}
+
+/* Mobile: sticky header on top, bottom nav below. */
+@media (max-width: 767px) {
+  .app-content {
+    padding: var(--space-5) var(--space-4)
+      calc(84px + env(safe-area-inset-bottom));
+  }
+}

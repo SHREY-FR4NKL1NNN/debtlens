@@ -1,0 +1,238 @@
+/* Shared structural styles across screens. */
+
+/* ---------------------------------------------------------- Page header */
+.page-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+.page-title {
+  font-size: var(--text-2xl);
+}
+.page-subtitle {
+  margin-top: var(--space-1);
+  color: var(--dl-text-secondary);
+  max-width: 60ch;
+}
+@media (max-width: 767px) {
+  .page-header {
+    margin-bottom: var(--space-6);
+  }
+  .page-title {
+    font-size: var(--text-xl);
+  }
+}
+
+/* --------------------------------------------------------------- Layout */
+.section {
+  margin-bottom: var(--space-8);
+}
+.section-label {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--dl-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: var(--space-4);
+}
+
+/* Debt card grid — 3 col desktop / 2 tablet / 1 mobile (spec). */
+.debt-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+@media (max-width: 1024px) {
+  .debt-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 767px) {
+  .debt-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ------------------------------------------------------------ Debt card */
+.debt-card {
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+.debt-card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+.debt-card-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-width: 0;
+}
+.debt-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}
+.debt-name {
+  font-weight: 600;
+  font-size: var(--text-base);
+  color: var(--dl-text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.debt-type-pill {
+  border: 1px solid currentColor;
+  flex-shrink: 0;
+  opacity: 0.85;
+}
+.debt-balance {
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  color: var(--dl-text-primary);
+  line-height: 1;
+}
+.debt-meta {
+  display: flex;
+  gap: var(--space-6);
+}
+.debt-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.debt-meta-item .dl-mono {
+  font-size: var(--text-sm);
+  font-weight: 500;
+}
+.debt-progress {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+.debt-progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--text-xs);
+}
+
+/* ----------------------------------------------------------- Stat cards */
+.stat-grid {
+  display: grid;
+  gap: var(--space-4);
+}
+.stat-card {
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+.stat-label {
+  font-size: var(--text-sm);
+  color: var(--dl-text-secondary);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+.stat-value {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--dl-text-primary);
+}
+.stat-value.accent {
+  color: var(--dl-accent);
+}
+.stat-sub {
+  font-size: var(--text-xs);
+  color: var(--dl-text-muted);
+}
+
+/* --------------------------------------------------------- Empty state */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-4);
+  padding: var(--space-12) var(--space-6);
+  max-width: 460px;
+  margin: 6vh auto 0;
+}
+.empty-illustration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 96px;
+  height: 96px;
+  border-radius: var(--radius-xl);
+  background: var(--dl-accent-light);
+  color: var(--dl-accent);
+  margin-bottom: var(--space-2);
+}
+.empty-body {
+  max-width: 42ch;
+  color: var(--dl-text-secondary);
+}
+.empty-action {
+  margin-top: var(--space-4);
+}
+
+/* ------------------------------------------------------------ Chart card */
+.chart-card {
+  padding: var(--space-6);
+}
+.chart-title {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  margin-bottom: var(--space-1);
+}
+.chart-sub {
+  font-size: var(--text-sm);
+  color: var(--dl-text-secondary);
+  margin-bottom: var(--space-5);
+}
+.chart-box {
+  width: 100%;
+  height: 320px;
+}
+@media (max-width: 767px) {
+  .chart-box {
+    height: 240px;
+  }
+  .chart-card {
+    padding: var(--space-4);
+  }
+}
+
+/* Recharts tooltip — glass. */
+.dl-tooltip {
+  background: var(--dl-surface-raised);
+  backdrop-filter: blur(16px) saturate(1.8);
+  -webkit-backdrop-filter: blur(16px) saturate(1.8);
+  border: 1px solid var(--dl-glass-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--text-sm);
+}
+.dl-tooltip-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+.dl-tooltip-label {
+  font-family: var(--font-body);
+  font-weight: 600;
+  margin-bottom: var(--space-1);
+}

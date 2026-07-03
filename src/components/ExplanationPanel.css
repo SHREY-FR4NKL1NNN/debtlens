@@ -1,0 +1,58 @@
+.explain-panel {
+  padding: var(--space-5) var(--space-6);
+  overflow: hidden;
+  border-left: 3px solid var(--dl-optimal);
+}
+.explain-head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+.explain-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: var(--radius-sm);
+  background: var(--dl-optimal);
+  color: #fff;
+}
+.explain-title {
+  font-weight: 600;
+  font-size: var(--text-sm);
+}
+.explain-status {
+  margin-left: auto;
+  font-size: var(--text-xs);
+  color: var(--dl-text-muted);
+  font-style: italic;
+}
+.explain-body {
+  font-size: var(--text-base);
+  line-height: 1.6;
+  color: var(--dl-text-primary);
+  white-space: pre-wrap;
+}
+.explain-error {
+  font-size: var(--text-sm);
+  color: var(--dl-warning);
+  background: var(--dl-warning-light);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+}
+.explain-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.1em;
+  vertical-align: text-bottom;
+  margin-left: 2px;
+  background: var(--dl-optimal);
+  animation: dl-blink 1s steps(2) infinite;
+}
+@keyframes dl-blink {
+  50% {
+    opacity: 0;
+  }
+}

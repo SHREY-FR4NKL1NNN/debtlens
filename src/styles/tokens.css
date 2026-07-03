@@ -1,0 +1,120 @@
+/* DebtLens design system — CSS variables.
+   Source of truth: the design spec. Do not edit values here without a spec change. */
+:root {
+  /* Backgrounds */
+  --dl-bg: #FAFAFA;
+  --dl-bg-secondary: #F4F4F5;
+  --dl-surface: rgba(255, 255, 255, 0.72);
+  --dl-surface-raised: rgba(255, 255, 255, 0.88);
+  --dl-glass: rgba(255, 255, 255, 0.60);
+  --dl-glass-border: rgba(0, 0, 0, 0.06);
+
+  /* Text */
+  --dl-text-primary: #09090B;
+  --dl-text-secondary: #52525B;
+  --dl-text-muted: #A1A1AA;
+  --dl-text-inverse: #FAFAFA;
+
+  /* Accent — single color, means "good, money saved, progress" */
+  --dl-accent: #16A34A;        /* green */
+  --dl-accent-light: #DCFCE7;
+  --dl-accent-muted: #86EFAC;
+
+  /* Semantic */
+  --dl-danger: #DC2626;
+  --dl-danger-light: #FEE2E2;
+  --dl-warning: #D97706;
+  --dl-warning-light: #FEF3C7;
+  --dl-neutral: #3F3F46;
+
+  /* Debt type colors */
+  --dl-credit: #7C3AED;   /* purple — credit cards */
+  --dl-student: #0284C7;  /* blue — student loans */
+  --dl-auto: #EA580C;     /* orange — auto loans */
+  --dl-personal: #0D9488; /* teal — personal loans */
+  --dl-other: #6B7280;    /* gray — other */
+
+  /* Strategy colors */
+  --dl-snowball: #2563EB;
+  --dl-avalanche: #16A34A;
+  --dl-optimal: #7C3AED;
+
+  /* Typography */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Type scale */
+  --text-xs: 11px;
+  --text-sm: 13px;
+  --text-base: 15px;
+  --text-lg: 18px;
+  --text-xl: 24px;
+  --text-2xl: 32px;
+  --text-3xl: 48px;
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Shadows — glass-native */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.06),
+               0 1px 3px rgba(0,0,0,0.04);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.08),
+               0 2px 8px rgba(0,0,0,0.04);
+  --shadow-glass: 0 8px 32px rgba(0,0,0,0.06),
+                  inset 0 1px 0 rgba(255,255,255,0.8);
+
+  /* Animation */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --duration-fast: 150ms;
+  --duration-base: 250ms;
+  --duration-slow: 400ms;
+  --duration-enter: 600ms;
+}
+
+/* Dark mode */
+[data-theme="dark"] {
+  --dl-bg: #09090B;
+  --dl-bg-secondary: #111113;
+  --dl-surface: rgba(24, 24, 27, 0.72);
+  --dl-surface-raised: rgba(32, 32, 36, 0.88);
+  --dl-glass: rgba(24, 24, 27, 0.60);
+  --dl-glass-border: rgba(255, 255, 255, 0.06);
+
+  --dl-text-primary: #FAFAFA;
+  --dl-text-secondary: #A1A1AA;
+  --dl-text-muted: #52525B;
+  --dl-text-inverse: #09090B;
+
+  --dl-accent: #22C55E;
+  --dl-accent-light: rgba(34, 197, 94, 0.12);
+  --dl-accent-muted: #16A34A;
+
+  --dl-danger: #EF4444;
+  --dl-danger-light: rgba(239, 68, 68, 0.12);
+  --dl-warning: #F59E0B;
+  --dl-warning-light: rgba(245, 158, 11, 0.12);
+
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.3);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.4);
+  --shadow-glass: 0 8px 32px rgba(0,0,0,0.3),
+                  inset 0 1px 0 rgba(255,255,255,0.06);
+}
