@@ -4,6 +4,7 @@
 
 > 📐 See **[DEPLOY.md](DEPLOY.md)** for the production topology (Vercel + Render +
 > ngrok'd LocalMind) and step-by-step deployment.
+live on https://debtlens-gray.vercel.app/
 
 DebtLens is not a payoff calculator. It's a debt *intelligence* layer: it models
 your entire portfolio, finds the mathematically optimal way to attack it,
